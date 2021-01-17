@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SSISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="FIFA">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="NombreCompleto" />
+      <PropertyRef Name="FechaNacimiento" />
+      <PropertyRef Name="AlturaCM" />
+      <PropertyRef Name="PesoKG" />
+      <PropertyRef Name="Nacionalidad" />
+      <PropertyRef Name="ValorEuropa" />
+      <PropertyRef Name="PiePreferido" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreCompleto" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Club" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Liga" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="AlturaCM" Type="Int32" Nullable="false" />
+    <Property Name="PesoKG" Type="Int32" Nullable="false" />
+    <Property Name="Nacionalidad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ValorEuropa" Type="Double" Nullable="false" />
+    <Property Name="PiePreferido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PieEsp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="SSISEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FIFAs" EntityType="Self.FIFA" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "GetPlayerFifa";
+}
+<h2>NitHack</h2>
+
+
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+<table id="myTable">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>NombreCompleto</th>
+            <th>Club</th>
+            <th>Liga</th>
+            <th>FechaNacimiento</th>
+            <th>AlturaCM</th>
+            <th>PesoKG</th>
+            <th>Nacionalidad</th>
+            <th>ValorEuropa</th>
+            <th>PiePreferido</th>
+            <th>PieEsp</th>
+
+        </tr>
+
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+
+
+            $('#myTable').DataTable({
+                "ajax": {
+                    "url": "/Fifa/GetPlayerFifa",
+                    "type": "POST",
+                    "datatype":"json"
+                },
+                "columns": [
+                    { "data": "Nombre", "name": "Nombre" },
+                    { "data": "NombreCompleto", "name": "NombreCompleto" },
+                    {"data"}
+                ]
+
+            });
+
+
+        });
+    </script>
+}

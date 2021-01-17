@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SSISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SSIS.dbo.FIFA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="FIFA">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Nombre" />
+      <PropertyRef Name="NombreCompleto" />
+      <PropertyRef Name="FechaNacimiento" />
+      <PropertyRef Name="AlturaCM" />
+      <PropertyRef Name="PesoKG" />
+      <PropertyRef Name="Nacionalidad" />
+      <PropertyRef Name="ValorEuropa" />
+      <PropertyRef Name="PiePreferido" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="NombreCompleto" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="Club" Type="varchar" MaxLength="100" />
+    <Property Name="Liga" Type="varchar" MaxLength="100" />
+    <Property Name="FechaNacimiento" Type="date" Nullable="false" />
+    <Property Name="AlturaCM" Type="int" Nullable="false" />
+    <Property Name="PesoKG" Type="int" Nullable="false" />
+    <Property Name="Nacionalidad" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ValorEuropa" Type="float" Nullable="false" />
+    <Property Name="PiePreferido" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PieEsp" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityContainer Name="SSISModelStoreContainer">
+    <EntitySet Name="FIFA" EntityType="Self.FIFA" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [FIFA].[ID] AS [ID], 
+    [FIFA].[Nombre] AS [Nombre], 
+    [FIFA].[NombreCompleto] AS [NombreCompleto], 
+    [FIFA].[Club] AS [Club], 
+    [FIFA].[Liga] AS [Liga], 
+    [FIFA].[FechaNacimiento] AS [FechaNacimiento], 
+    [FIFA].[AlturaCM] AS [AlturaCM], 
+    [FIFA].[PesoKG] AS [PesoKG], 
+    [FIFA].[Nacionalidad] AS [Nacionalidad], 
+    [FIFA].[ValorEuropa] AS [ValorEuropa], 
+    [FIFA].[PiePreferido] AS [PiePreferido], 
+    [FIFA].[PieEsp] AS [PieEsp]
+    FROM [dbo].[FIFA] AS [FIFA]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
