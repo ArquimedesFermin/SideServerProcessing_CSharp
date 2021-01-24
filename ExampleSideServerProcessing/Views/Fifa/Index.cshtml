@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "GetPlayerFifa";
+}
+
+<style>
+    .tb {
+        margin: 29px;
+    }
+</style>
+
+
+
+<div class="tb">
+    <h2>Data Table Example V1.0</h2>
+    @Html.ActionLink("Exportar a CSV", "ExportToCSV", "Fifa", new { @class = "ui button" })
+    <hr />
+    <table id="playertable" class="ui celled table">
+
+        <thead>
+
+            <tr>
+                <th>Nombre</th>
+                <th>Nombre Completo</th>
+                <th>Club</th>
+                <th>Liga</th>
+                <th>Fecha Nacimiento</th>
+                <th>AlturaCM</th>
+                <th>PesoKG</th>
+                <th>Nacionalidad</th>
+                <th>Valor Europa</th>
+                <th>Pie Preferido</th>
+
+
+            </tr>
+
+        </thead>
+
+    </table>
+</div>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/dataTables.semanticui.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
+
+
+
+@section Scripts {
+
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.23/js/dataTables.semanticui.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+
+
+
+
+
+
+
+
+
+    <script>
+        $(document).ready(function () {
+
+
+            dtPlayerSoccer();
+
+        });
+
+        function dtPlayerSoccer() {
+            $('#playertable').DataTable({
+
+
+                "ajax": {
+                    "url": "/Fifa/GetPlayerFifa",
+                    "type": "POST",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "Nombre", "name": "Nombre" },
+                    { "data": "NombreCompleto", "name": "NombreCompleto" },
+                    { "data": "Club", "name": "Club" },
+                    { "data": "Liga", "name": "Liga" },
+                    {
+                        "data": "FechaNacimiento",
+                        "render": function (data) {
+                            return moment(data).format('DD/MM/YYYY');
+                        },
+                        "name": "FechaNacimiento"
+                    },
+                    { "data": "AlturaCM", "name": "AlturaCM" },
+                    { "data": "PesoKG", "name": "PesoKG" },
+                    { "data": "Nacionalidad", "name": "Nacionalidad" },
+                    { "data": "ValorEuropa", "name": "ValorEuropa" },
+                    { "data": "PiePreferido", "name": "PiePreferido" }
+
+
+                ],
+                "order": [0, "asc"],
+                "processing": "true",
+                "serverSide": "true"
+
+
+            });
+
+        }
+
+
+
+    </script>
+}

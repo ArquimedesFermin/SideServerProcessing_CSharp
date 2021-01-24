@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Teams_SoccerModelStoreContainer" CdmEntityContainer="Teams_SoccerEntities">
+    <EntitySetMapping Name="FIFA">
+      <EntityTypeMapping TypeName="Teams_SoccerModel.FIFA">
+        <MappingFragment StoreEntitySet="FIFA">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+          <ScalarProperty Name="Club" ColumnName="Club" />
+          <ScalarProperty Name="Liga" ColumnName="Liga" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="AlturaCM" ColumnName="AlturaCM" />
+          <ScalarProperty Name="PesoKG" ColumnName="PesoKG" />
+          <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
+          <ScalarProperty Name="ValorEuropa" ColumnName="ValorEuropa" />
+          <ScalarProperty Name="PiePreferido" ColumnName="PiePreferido" />
+          <ScalarProperty Name="PieEsp" ColumnName="PieEsp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

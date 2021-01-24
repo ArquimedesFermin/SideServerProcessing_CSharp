@@ -55,6 +55,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.8\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -132,23 +135,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DbFifa.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DbFifa.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DbFifa.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DbFifa.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DbFifa.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DbFifa.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\FIFA.cs">
-      <DependentUpon>DbFifa.tt</DependentUpon>
+      <DependentUpon>TeamsSoccer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TeamsSoccer.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeamsSoccer.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TeamsSoccer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeamsSoccer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TeamsSoccer.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TeamsSoccer.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SideServerModels\DataTableAjaxPostModel.cs" />
@@ -162,24 +165,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\DbFifa.Context.tt">
+    <Content Include="Models\TeamsSoccer.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DbFifa.Context.cs</LastGenOutput>
-      <DependentUpon>DbFifa.edmx</DependentUpon>
+      <DependentUpon>TeamsSoccer.edmx</DependentUpon>
+      <LastGenOutput>TeamsSoccer.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\DbFifa.tt">
+    <Content Include="Models\TeamsSoccer.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DbFifa.edmx</DependentUpon>
-      <LastGenOutput>DbFifa.cs</LastGenOutput>
+      <DependentUpon>TeamsSoccer.edmx</DependentUpon>
+      <LastGenOutput>TeamsSoccer.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\DbFifa.edmx">
+    <EntityDeploy Include="Models\TeamsSoccer.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DbFifa.Designer.cs</LastGenOutput>
+      <LastGenOutput>TeamsSoccer.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\DbFifa.edmx.diagram">
-      <DependentUpon>DbFifa.edmx</DependentUpon>
+    <Content Include="Models\TeamsSoccer.edmx.diagram">
+      <DependentUpon>TeamsSoccer.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -204,6 +207,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Fifa\GetPlayerFifa.cshtml" />
+    <Content Include="Views\Fifa\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
