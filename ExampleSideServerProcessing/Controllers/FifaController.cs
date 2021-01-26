@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Linq.Dynamic;
+using System.Reflection;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -17,13 +18,15 @@ namespace ExampleSideServerProcessing.Controllers
 
 
 
-        // GET: Fifa
         public ActionResult Index()
         {
             return View();
         }
 
-
+        /// <summary>
+        /// Obtener Jugadores de FIFA
+        /// </summary>
+        /// <returns>Json</returns>
         [HttpPost]
         public ActionResult GetPlayerFifa()
         {
@@ -73,25 +76,64 @@ namespace ExampleSideServerProcessing.Controllers
             catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
 
         }
 
 
-
-
+        /// <summary>
+        /// Export to CSV
+        /// </summary>
         public ActionResult ExportToCSV()
         {
             var playerSoccer = db.FIFA.ToList();
-
             var builder = new StringBuilder();
-            builder.AppendLine("ID,Nombre,Nombre Completo,Club,Liga,Fecha Nacimiento,AlturaCM,PesoKG,Nacionalidad,ValorEuropa,Pie Preferido");
+            PropertyInfo[] lst = typeof(FIFA).GetProperties();
 
+
+            int valueHeader = 1;
+            //Header
+            foreach (var item in lst)
+            {
+                if (lst.Length == valueHeader)
+                {
+                    builder.AppendLine($"{item.Name} ");
+
+                }
+                else
+                {
+                    builder.Append($"{item.Name}, ");
+
+                }
+
+                valueHeader++;
+            }
+
+            //Values
             foreach (var item in playerSoccer)
             {
-                builder.AppendLine($"{item.ID},{item.Nombre},{item.NombreCompleto},{item.Club},{item.Liga},{item.FechaNacimiento},{item.AlturaCM},{item.PesoKG},{item.Nacionalidad},{item.ValorEuropa},{item.PiePreferido}");
+
+                int valueValues = 1;
+
+                foreach (var propertyInfo in lst)
+                {
+                    string Valor = propertyInfo.GetValue(item).ToString();
+                    if (lst.Length == valueValues)
+                    {
+                        builder.AppendLine($"{Valor} ");
+
+                    }
+                    else
+                    {
+                        builder.Append($"{Valor}, ");
+
+                    }
+                    valueValues++;
+                }
+
             }
+
 
             return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "DataTable_Example_V1.0.csv");
         }
